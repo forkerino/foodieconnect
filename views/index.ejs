@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FoodieConnect</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/public/style/style.css">
+</head>
+<body>
+	<div id="header">
+		<ul id="menubar">
+			<li><h2 id="banner">FoodieConnect</h2></li>
+			<li><span> - meet friends for food</span></li>
+			<li><a href="/auth/facebook" class="auth"><span class="fa fa-facebook"></span> login</a></li>
+		</ul>
+	</div>
+	<div id="main">
+		<form action="/api/location" method="POST">
+			<input id="searchbox" type="search" placeholder="search your location..." name="location">
+			<button type="submit"><span class="fa fa-search"></span></button>
+		</form>
+		<ul id="restos">
+		<% for(let i=0; i< yelps.length; i++){ %>
+			<li id="resto">
+				<img src="<%= yelps[i].img %>" style="width: 100px; height: 100px;"/>
+				<h2><%= yelps[i].name %></h2> 
+				<p>Address: <%= yelps[i].location.address1 %>
+				<%= yelps[i].location.address2 %>
+				<%= yelps[i].location.address3 %>
+				<%= yelps[i].location.zip_code %>
+				<%= yelps[i].location.city %></p>
+				<p>Phone: <%= yelps[i].phone %>
+				<p>Price:  <%= yelps[i].price %></p>
+				<p>Rating: <%= yelps[i].rating %></p>
+
+			</li>
+		<% } %>
+	</div>
+	
+</body>
+</html>
