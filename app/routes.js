@@ -1,9 +1,10 @@
 'use strict';
 
 const yelp = require('yelp-fusion');
+let yelps = [];
 
 module.exports = function (app, passport) {
-	app.get('/auth/facebook', passport.authenticate('facebook'));
+	app.get('/auth/facebook', passport.authenticate('facebook', {scope: "public_profile"}));
 
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
@@ -13,15 +14,18 @@ module.exports = function (app, passport) {
 
     app.get('/', function(req, res){
     	res.render('index.ejs', {
-    		yelps: []
+    		user: req.user,
+    		yelps: yelps
     	});
     });
 
     app.post('/api/location', getYelpData, function(req, res){
-    	console.log(req);
+    	res.location('back');
+    	yelps = req.yelps; // should probably use express-session;
     	res.render('index.ejs', {
+    		user: req.user,
     		yelps: req.yelps
-    	});
+    	});    	
     });
 }
 

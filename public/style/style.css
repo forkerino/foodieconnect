@@ -36,3 +36,27 @@
 	position: relative;
 	top: 60px;
 }
+
+#restos {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.resto {
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.contactinfo h2, p {
+    margin: 5px 0;
+}
