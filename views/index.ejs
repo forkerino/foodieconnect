@@ -12,9 +12,10 @@
 			<li><h2 id="banner">FoodieConnect</h2></li>
 			<li><span> - meet friends for food</span></li>
 			<% if (!user) { %>
-				<li><a href="/auth/facebook" class="auth"><span class="fa fa-facebook"></span> login</a></li>
+				<li><a href="/auth/facebook" class="auth" id="fblogin"><span class="fa fa-facebook"></span> login</a></li>
 			<% } else { %>
 				<li class="auth">Welcome, <%= user.facebook.name %></li>
+				<li class="auth"><a href="/logout">logout</a></li>
 			<% } %>
 		</ul>
 	</div>
@@ -25,12 +26,13 @@
 		</form>
 		<ul id="restos">
 		<% for(let i=0; i< yelps.length; i++){ %>
-			<li class="resto">
+			<li class="resto" id="<%= yelps[i].id %>">
 				<div class = "images">
 					<img src="<%= yelps[i].img %>" style="width: 100px; height: 100px;"/>
 				</div>
 				<div class = "contactinfo">
-					<h2><%= yelps[i].name %></h2> 
+					<a href="<%= yelps[i].url %>" target="_blank"><h2><%= yelps[i].name %></h2></a> 
+					<button class="going" id="<%= yelps[i].id %>button"><span class="guests" id="<%= yelps[i].id %>guests">0</span> going</button>
 					<p>Address: <%= yelps[i].location.address1 %>
 					<%= yelps[i].location.address2 %>
 					<%= yelps[i].location.address3 %>
@@ -44,6 +46,9 @@
 			</li>
 		<% } %>
 	</div>
-	
+	<footer>
+		<p>Powered by: <img src="/public/img/yelp.png"/></p>
+	</footer>
+	<script src="/controllers/clientCtrl.js"></script>
 </body>
 </html>

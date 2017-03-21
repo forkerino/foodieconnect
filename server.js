@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(session({ secret: 'muhahaha!' }));
 app.use(passport.initialize());
 app.use('/public', express.static(process.cwd() + '/public'));
+app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use(passport.session());
 app.use(bodyParser());
 app.use(cookieParser());
