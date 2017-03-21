@@ -17,9 +17,9 @@
 				existingNumbers.forEach(function(e){
 					let el = document.getElementById(`${e[0]}guests`);
 					if (e[1].includes(user)){
-						el.innerHTML = (e[1].length>1) ? `You and ${e[1].length-1} others are going` : `You are going`;
+						el.innerHTML = (e[1].length==1) ? 'You are going' : e[1].length==2 ? `You and 1 other are going` : `You and ${e[1].length-1} others are going`;
 					} else {
-						el.innerHTML = `${e[1].length} are going`;
+						el.innerHTML = e[1].length==1 ? '1 person is going' : `${e[1].length} people are going`;
 					}
 				});
 			}
@@ -46,9 +46,9 @@
 							let el = document.getElementById(`${id}guests`);
 							let res = JSON.parse(goingReq.response);
 							if (res.includes(user)) {
-								el.innerHTML = res.length>1 ? `You and ${res.length-1} others are going` : `You are going`;
+								el.innerHTML = res.length==1 ?'You are going' : res.length ==2? `You and 1 other are going` : `You and ${res.length-1} others are going`;
 							} else {
-								el.innerHTML = `${res.length} are going`;
+								el.innerHTML = res.length==1 ? '1 person is going' : `${res.length} people are going`;
 							}
 						}
 					}

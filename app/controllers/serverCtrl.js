@@ -50,7 +50,6 @@ module.exports = {
 						{ $pull: {going: data.user}},
 						{ new: true},
 						function(err,doc){
-							console.log ("pull: ", doc);
 							if (err) throw(err);
 							if(doc) resolve(doc.going);
 						});
@@ -59,7 +58,6 @@ module.exports = {
 						{ $push: {going: data.user}}, 
 						{ new: true},
 						function(err,doc){
-							console.log ("push: ", doc);
 							if (err) throw(err);
 							if(doc) resolve(doc.going);
 						});
