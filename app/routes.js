@@ -77,7 +77,6 @@ function getYelpData(req, res, next){
 			    term:'restaurants',
 			    location: req.body.location
 			  }).then(response => {
-			  	console.log(response.jsonBody.businesses);
 		    req.yelps = response.jsonBody.businesses.map(function(y){
 		    	return {
 		    		name: y.name,
