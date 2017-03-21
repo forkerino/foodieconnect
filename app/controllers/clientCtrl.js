@@ -8,7 +8,6 @@
 		for (let i = 0; i< guestsnumbers.length; i++){
 			idlist.push(guestsnumbers[i].getAttribute('id').slice(0,-6));
 		}
-		console.log(idlist);
 
 		let numberReq = new XMLHttpRequest();
 		numberReq.onreadystatechange = function(){
@@ -39,7 +38,6 @@
 						if (this.readyState == 4 && this.status == 200){
 							window.location = currentLocation;
 							let numberOfGuests = document.getElementById(`${id}guests`);
-							console.log(goingReq.response);
 							numberOfGuests.innerHTML = goingReq.response;
 						}
 					}
