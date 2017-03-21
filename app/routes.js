@@ -37,7 +37,7 @@ module.exports = function (app, passport) {
     		res.redirect(303, '/auth/facebook');
     	} else {
     		serverCtrl.toggleVenueVisitor({ id: req.params.id, user: req.user.facebook.id }).then(function(n){
-    			res.status(200).send(n.toString());
+    			res.status(200).send(JSON.stringify(n));
     		});
     		
     	}
@@ -46,7 +46,7 @@ module.exports = function (app, passport) {
     app.post('/api/venues', function(req, res){
     	serverCtrl.getVisitors(req.body)
 	    	.then(function(d){
-	    		console.log(d);
+                console.log(JSON.stringify(d));
 	    		res.status(200).send(JSON.stringify(d));
 	    	})
 	    	.catch(e => console.error(e));

@@ -3,6 +3,7 @@
 	const guestsnumbers= document.getElementsByClassName('guests');
 	const idlist = [];
 	let currentLocation = window.location.host;
+	const user = document.getElementById('userid').innerHTML;
 	
 	if(guestsnumbers.length > 0){
 		for (let i = 0; i< guestsnumbers.length; i++){
@@ -14,7 +15,12 @@
 			if (this.readyState == 4 && this.status == 200){
 				let existingNumbers = JSON.parse(numberReq.response);
 				existingNumbers.forEach(function(e){
-					document.getElementById(`${e[0]}guests`).innerHTML = e[1];
+					let el = document.getElementById(`${e[0]}guests`);
+					if (e[1].includes(user)){
+						el.innerHTML = (e[1].length>1) ? `You and ${e[1].length-1} others are going` : `You are going`;
+					} else {
+						el.innerHTML = `${e[1].length} are going`;
+					}
 				});
 			}
 		}
@@ -37,8 +43,13 @@
 					goingReq.onreadystatechange = function(){
 						if (this.readyState == 4 && this.status == 200){
 							window.location = currentLocation;
-							let numberOfGuests = document.getElementById(`${id}guests`);
-							numberOfGuests.innerHTML = goingReq.response;
+							let el = document.getElementById(`${id}guests`);
+							let res = JSON.parse(goingReq.response);
+							if (res.includes(user)) {
+								el.innerHTML = res.length>1 ? `You and ${res.length-1} others are going` : `You are going`;
+							} else {
+								el.innerHTML = `${res.length} are going`;
+							}
 						}
 					}
 					goingReq.open('PUT', `/api/venue/${id}`, true);

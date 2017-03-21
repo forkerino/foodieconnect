@@ -13,9 +13,11 @@
 			<li><span> - meet friends for food</span></li>
 			<% if (!user) { %>
 				<li><a href="/auth/facebook" class="auth" id="fblogin"><span class="fa fa-facebook"></span> login</a></li>
+				<span id="userid" hidden>none</span>
 			<% } else { %>
 				<li class="auth">Welcome, <%= user.facebook.name %></li>
 				<li class="auth"><a href="/logout">logout</a></li>
+				<span id="userid" hidden><%= user.facebook.id %></span>
 			<% } %>
 		</ul>
 	</div>
@@ -32,7 +34,7 @@
 				</div>
 				<div class = "contactinfo">
 					<a href="<%= yelps[i].url %>" target="_blank"><h2><%= yelps[i].name %></h2></a> 
-					<button class="going" id="<%= yelps[i].id %>button"><span class="guests" id="<%= yelps[i].id %>guests">0</span> going</button>
+					<button class="going" id="<%= yelps[i].id %>button"><span class="guests" id="<%= yelps[i].id %>guests">0 going</span></button>
 					<p>Address: <%= yelps[i].location.address1 %>
 					<%= yelps[i].location.address2 %>
 					<%= yelps[i].location.address3 %>
