@@ -145,8 +145,19 @@ form {
 }
 
 footer {
+    width: 100%; 
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.yelp, .creator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+}
+
+a:visited {
+    color: black;
 }

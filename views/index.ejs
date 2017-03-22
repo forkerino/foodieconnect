@@ -48,8 +48,14 @@
 		<% } %>
 	</div>
 	<footer>
-		<p>Powered by: </p>
-		<img src="/public/img/yelp.png"/>
+		<div class="creator">
+			<p>&copy; Pieter Stokkink</p>
+			<a href="https://github.com/forkerino/foodieconnect"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+		</div>
+		<div class="yelp">		
+			<p>Powered by: </p>
+			<img src="/public/img/yelp.png"/>
+		</div>
 	</footer>
 	<script>if (window.location.pathname.endsWith('location')) history.replaceState('', '', window.location.origin);</script>
 	<script src="/controllers/clientCtrl.js"></script>
