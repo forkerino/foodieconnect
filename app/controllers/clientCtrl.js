@@ -46,6 +46,7 @@
 					let goingReq = new XMLHttpRequest();
 					goingReq.onreadystatechange = function(){
 						if (this.readyState == 4 && this.status == 200){
+							console.log(currentLocation);
 							window.location = currentLocation;
 							let el = document.getElementById(`${id}guests`);
 							let res = JSON.parse(goingReq.response);
