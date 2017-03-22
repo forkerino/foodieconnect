@@ -20,8 +20,8 @@
 						el.parentNode.className += " user";
 						el.innerHTML = (e[1].length==1) ? 'You are going' : e[1].length==2 ? `You and 1 other are going` : `You and ${e[1].length-1} others are going`;
 					} else {
-						if (el.parentNode.className.indexOf("user")>0){
-							el.parentNode.className.replace(" user","");
+						if (el.parentNode.className.indexOf("user")>=0){
+							el.parentNode.classList.remove("user");
 						}
 						el.innerHTML = e[1].length==1 ? '1 person is going' : `${e[1].length} people are going`;
 					}
@@ -53,8 +53,9 @@
 								el.parentNode.className += " user";
 								el.innerHTML = res.length==1 ?'You are going' : res.length ==2? `You and 1 other are going` : `You and ${res.length-1} others are going`;
 							} else {
-								if (el.parentNode.className.indexOf("user")>0){
-									el.parentNode.className.replace(" user","");
+								console.log("user is not going");
+								if (el.parentNode.className.indexOf("user")>=0){
+									el.parentNode.classList.remove("user");
 								}
 								el.innerHTML = res.length==1 ? '1 person is going' : `${res.length} people are going`;
 							}

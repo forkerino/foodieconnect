@@ -4,8 +4,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    min-height: 100vh;
+    justify-content: space-between;
+    min-height: 95vh;
 }
 
 .auth {
@@ -92,7 +92,7 @@ form {
 .resto {
     display: flex;
     flex-direction: row;
-    border: 1px solid #247D07;
+    border: 2px solid #247D07;
     border-radius: 5px;
     margin: 5px 0;
 }
@@ -146,6 +146,7 @@ form {
 
 footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
 }

@@ -9,6 +9,7 @@ const configPP = require('./config/passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const favicon = require('serve-favicon');
+const path = require('path');
 
 require('dotenv').config();
 
