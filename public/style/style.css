@@ -1,19 +1,37 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #FFF5CE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
 .auth {
-	background: #3B5998;
+	background: #247D07;
 	color: white;
 	padding: 10px 15px; 
 	text-decoration: none;
 	border-radius: 5px;
 }
 
+#banner {
+    color: #247D07;
+}
+
+#header {
+    display: flex;
+    align-self: stretch;
+    
+}
+
 #menubar {
 	list-style: none;
     margin: 0; 
     padding: 0 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   
     display: -webkit-box;
@@ -21,6 +39,7 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    align-items: center;
   
     -webkit-flex-flow: row wrap;
     justify-content: space-between;
@@ -28,13 +47,41 @@
 
 #menubar>li {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+    align-items: baseline;
 }
 
 #main {
-	position: relative;
-	top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    font-size: 0rem;
+}
+
+#searchbox {
+    height: 2rem;
+    border-radius:  5px 0 0 5px;
+    border: 1px solid #247D07;
+    padding-left: 10px;
+    margin-right: 0;
+}
+
+#searchbox:focus, #submitsearch:focus {
+    outline: none;
+}
+
+#submitsearch {
+    height: 2rem;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #247D07;
+    border-left: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 0;
 }
 
 #restos {
@@ -44,19 +91,61 @@
 
 .resto {
     display: flex;
-    border: 1px solid grey;
+    flex-direction: row;
+    border: 1px solid #247D07;
     border-radius: 5px;
     margin: 5px 0;
 }
 
 .images {
     display: flex;
+    align-self: flex-start;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 10px;
+}
+
+.images>img {
+    border-radius: 5px;
+}
+
+.contactinfo {
+    align-self: flex-start;
 }
 
 .contactinfo h2, p {
     margin: 5px 0;
+}
+
+.contactinfo a {
+    text-decoration: none;
+    color: black;
+}
+
+.goingbutton {
+    margin-left: auto;
+}
+
+.going {
+    border-radius: 5px;
+    border: 1px solid #247D07;
+    background: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.going:focus {
+    outline: none;
+}
+
+.user {
+    background-color: #247D07;
+    color: white;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }

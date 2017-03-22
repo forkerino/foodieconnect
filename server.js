@@ -8,6 +8,7 @@ const routes = require('./app/routes');
 const configPP = require('./config/passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const favicon = require('serve-favicon');
 
 require('dotenv').config();
 
@@ -26,6 +27,7 @@ app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use(passport.session());
 app.use(bodyParser());
 app.use(cookieParser());
+app.use(favicon(path.join(__dirname,'public','img','favicon.ico')));
 
 routes(app, passport);
 
